@@ -1,0 +1,28 @@
+{
+  "name": "kujira-proto",
+  "version": "0.0.1",
+  "description": "Protobufs for the Kujira blockchain",
+  "author": "Amit Prasad <amit@entropiclabs.io>",
+  "homepage": "https://github.com/EntropicLabs/kujira-proto",
+  "license": "MIT",
+  "module": "src/index.ts",
+  "scripts": {
+    "codegen": "bun run scripts/codegen.ts",
+    "compile": "bun run rimraf ./dist && bun build ./src/index.ts --outdir=dist --splitting"
+  },
+  "devDependencies": {
+    "@cosmology/telescope": "^1.0.1",
+    "@protobufs/cosmos": "^0.1.0",
+    "@protobufs/cosmwasm": "^0.1.1",
+    "@types/bun": "^1.0.12",
+    "bun-plugin-dts": "^0.2.2",
+    "publish-scripts": "0.1.0",
+    "rimraf": "^5.0.5"
+  },
+  "dependencies": {
+    "@cosmjs/amino": "^0.32.3",
+    "@cosmjs/proto-signing": "^0.32.3",
+    "@cosmjs/stargate": "^0.32.3",
+    "@cosmjs/tendermint-rpc": "^0.32.3"
+  }
+}
