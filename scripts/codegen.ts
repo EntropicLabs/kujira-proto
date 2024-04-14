@@ -1,16 +1,14 @@
 import telescope from "@cosmology/telescope";
 import { join } from "path";
-import { rimrafSync as rimraf } from "rimraf";
 
 const protoDirs = [join(__dirname, '/../proto')];
 const outPath = join(__dirname, '../src/codegen');
-rimraf(outPath);
 
 telescope({
   protoDirs,
   outPath,
   options: {
-    env: "v-next",
+    // env: "v-next",
     removeUnusedImports: true,
     tsDisable: {
       patterns: ['**/*amino.ts', '**/*registry.ts']

@@ -5,24 +5,23 @@
   "author": "Amit Prasad <amit@entropiclabs.io>",
   "homepage": "https://github.com/EntropicLabs/kujira-proto",
   "license": "MIT",
-  "module": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "codegen": "bun run scripts/codegen.ts",
-    "compile": "bun run rimraf ./dist && bun build ./src/index.ts --outdir=dist --splitting"
+    "codegen": "rm -rf ./src/codegen && bun run scripts/codegen.ts",
+    "clean": "rm -rf dist && mkdir dist",
+    "build": "bun clean && bun codegen && bunx tsc"
   },
   "devDependencies": {
     "@cosmology/telescope": "^1.0.1",
     "@protobufs/cosmos": "^0.1.0",
-    "@protobufs/cosmwasm": "^0.1.1",
-    "@types/bun": "^1.0.12",
-    "bun-plugin-dts": "^0.2.2",
-    "publish-scripts": "0.1.0",
-    "rimraf": "^5.0.5"
+    "@protobufs/cosmwasm": "^0.1.1"
   },
   "dependencies": {
     "@cosmjs/amino": "^0.32.3",
     "@cosmjs/proto-signing": "^0.32.3",
     "@cosmjs/stargate": "^0.32.3",
-    "@cosmjs/tendermint-rpc": "^0.32.3"
+    "@cosmjs/tendermint-rpc": "^0.32.3",
+    "typescript": "^5.4.5"
   }
 }
